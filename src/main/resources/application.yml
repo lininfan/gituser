@@ -1,0 +1,39 @@
+
+#数据源
+spring:
+  resources:
+    static-locations: classpath:/templates
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mysqll
+  freemarker:
+    #设置模板后缀名
+    suffix: .ftl
+    #设置文档类型
+    content-type: text/html
+    charset: UTF-8
+    #设置页面缓存
+    cache: false
+    template-loader-path: classpath:/templates/
+    request-context-attribute: req
+
+  #Druid连接池配置
+  druid:
+    initial-size: 5
+    max-active: 100
+    min-idle: 5
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 30000
+    validation-query: SELECT 1 FROM DUAL
+    test-while-idle: true
+    test-on-borrow: true
+    test-on-return: false
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+
+
+
